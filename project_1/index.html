@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Music in the Machines - Project 1</title>6
+	<title>Music in the Machines - Project 1</title>
 	<!-- link an external stylesheet or add your style tags here -->
 </head>
+<style>
+	h1{
+		color:blue;
+	}
+	button{
+		border:2px solid blue;
+		background-color: orange;
+	}
+	div{
+		border:2px solid blue;
+		background-color:orange;
+		margin-bottom: 3px;
+	}
+</style>
 <body>
-	<h1>Don't Stop Believin'</h1>
+<div>
+	<h1>Opera!</h1>
+
+	<audio control id="audio">
+		<source src="La-traviata-opera.mp3" type="audio/mpeg" >
+
+	</audio>
+	<button onclick="playAud()">Play</button>
+	<button onclick="pauseAud()">Pause</button>
+	<button onclick="muteAud()">Mute</button>
+	<button onclick="unmuteAud()">Unmute</button>
+</div>
 	<!-- create an audio tag and give it this source: La-traviata-opera.mp3 -->
 	<!-- add your scripts tags here -->
+
+	<script>
+		var audio = document.getElementById("audio")
+
+		function playAud(){
+			audio.play()
+		}
+
+		function pauseAud(){
+			audio.pause()
+		}
+
+		function muteAud(){
+			audio.muted=true;
+		}
+
+		function unmuteAud(){
+			audio.muted=false;
+		}
+
+	</script>
 </body>
 </html>
