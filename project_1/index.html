@@ -11,11 +11,21 @@
 	button{
 		border:2px solid blue;
 		background-color: orange;
+		color:blue;
+		border-radius:300px;
 	}
 	div{
 		border:2px solid blue;
 		background-color:orange;
 		margin-bottom: 3px;
+		border-radius:10px;
+	}
+	p{
+		color:blue;
+
+	}
+	ul{
+		color:blue;
 	}
 </style>
 <body>
@@ -26,31 +36,68 @@
 		<source src="La-traviata-opera.mp3" type="audio/mpeg" >
 
 	</audio>
-	<button onclick="playAud()">Play</button>
-	<button onclick="pauseAud()">Pause</button>
-	<button onclick="muteAud()">Mute</button>
-	<button onclick="unmuteAud()">Unmute</button>
+	<button onclick="playAud()" id="play">Play</button>
+	<button onclick="pauseAud()" id="pause">Pause</button>
+	<button onclick="muteAud()" id="mute">Mute</button>
+	<button onclick="unmuteAud()"id="mute01">Unmute</button>
 </div>
+<div>
+	<h1>What is an Opera?</h1>
+	<p>An opera is a dramatic story with a duet of instimental and vocal music. A famous opera songwriter was Mozart. Some operas are as follows:</p>
+	<ul>
+		<li>La Triviata</li>
+		<li>The Magic Flute</li>
+		<li>Carmen</li>
+		<li>Rigoletto</li>
+		<li>Les Troyens</li>
+	</ul>
+</div>
+<footer>&#169; Aikam Singh 2019
+</footer>
 	<!-- create an audio tag and give it this source: La-traviata-opera.mp3 -->
 	<!-- add your scripts tags here -->
 
 	<script>
 		var audio = document.getElementById("audio")
+    
+        // function(id, color) {
+        	// document.getElementById(id).style.background = color
+        // }
 
 		function playAud(){
 			audio.play()
+			document.getElementById("play").style.background = "red";
+			document.getElementById("pause").style.background = "orange";
+			document.getElementById("mute01").style.background = "orange";
+			document.getElementById("mute").style.background = "orange";
 		}
 
 		function pauseAud(){
 			audio.pause()
+			document.getElementById("pause").style.background = "red";
+			document.getElementById("play").style.background = "orange";
+			document.getElementById("mute").style.background = "orange";
+			document.getElementById("mute01").style.background = "orange";
 		}
 
 		function muteAud(){
-			audio.muted=true;
+			audio.muted = true;
+			document.getElementById("mute").style.background = "red"; 
+			document.getElementById("mute01").style.background = "orange"; 
+			document.getElementById("play").style.background = "orange";
+			document.getElementById("pause").style.background = "orange";
+
 		}
 
 		function unmuteAud(){
 			audio.muted=false;
+			if(audio.muted==false){
+				document.getElementById("mute01").style.background = "red"; 
+				document.getElementById("mute").style.background = "orange";
+				document.getElementById("pause").style.background = "orange";
+				document.getElementById("play").style.background = "orange";
+			}
+
 		}
 
 	</script>
