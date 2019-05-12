@@ -34,7 +34,7 @@
 <body>
 <div>
 	<h1>Opera!</h1>
-	<h3>La Triviata</h3>
+	<h3 id="songName">La Triviata</h3>
 	<audio control id="audio">
 		<source src="La-traviata-opera.mp3" type="audio/mpeg" >
 
@@ -64,14 +64,19 @@
 
 	<script>
 		var audio = document.getElementById("audio")
-		var songs = ["La Triviata", "Overture Finale", "Humoresque Dorvak"]
+		var songs = [{name: "La Triviata", file: "La-triviata-opera.mp3"},
+		             {name: "Overture Finale 1812", file: "1812-overture-finale.mp3"},
+		             {name: "Humoresque Dorvak", file: "Humoresque-dvorak.mp3"} ]
+		var songName = document.getElementById("songName")
+
+
         var a = 0
 
 
         //songs[a] 
        
         function nextS(){
-        	alert(a)
+        	songName.innerHtml = songs[a].name
         	a = a+1
         	if(a>2){
         		a=0
@@ -79,7 +84,7 @@
         }
 
         function prevS(){
-        	alert(a)
+        	alert(songs[a].name)
         	a = a-1
         	if(a<0){
         		a=2
